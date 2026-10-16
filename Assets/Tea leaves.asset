@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Tea leaves
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   cardName: Tea leaves
-  icon: {fileID: 0}
+  icon: {fileID: -7370316243180180413, guid: 18bd5a7f620aa914fb22814dd4a4c90b, type: 3}

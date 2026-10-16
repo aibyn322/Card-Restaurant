@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Banana
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   cardName: Banana
-  icon: {fileID: -9182177788924653191, guid: db2ec2b14c672604d88a08c7b057127f, type: 3}
+  icon: {fileID: 5481178827603167489, guid: 228da586579ebae4ca7ccbd47f4ee2e0, type: 3}

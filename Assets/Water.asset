@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   cardName: Water
-  icon: {fileID: 0}
+  icon: {fileID: 2410779667716283973, guid: a01c47f41198b7743b7b498ab5909a90, type: 3}

@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ChefStation : MonoBehaviour, IDropHandler
+public class ChefStation : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
     public List<Recipe> recipes;
     public GameObject cardPrefab;
@@ -17,6 +17,12 @@ public class ChefStation : MonoBehaviour, IDropHandler
     readonly List<CardData> stack = new List<CardData>();
     bool busy;
 
+    public void OnPointerClick(PointerEventData e)
+{
+    if (busy) return;
+    stack.Clear();
+    stackLabel.text = "";
+}
     public void OnDrop(PointerEventData e)
     {
         if (busy || e.pointerDrag == null) return;

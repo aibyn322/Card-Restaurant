@@ -149,7 +149,8 @@ GameObject:
   - component: {fileID: 910790291331068842}
   - component: {fileID: 7340438236154913073}
   - component: {fileID: 4970133228025731469}
-  - component: {fileID: 7063730292677772650}
+  - component: {fileID: -3879967493389670883}
+  - component: {fileID: 2844553882630571859}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -231,7 +232,19 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 9c05fc5fd635b9c4a93b703300ed9407, type: 2}
   title: {fileID: 2191402222274455020}
   icon: {fileID: 6280873802073365978}
---- !u!114 &7063730292677772650
+--- !u!225 &-3879967493389670883
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145904801506808302}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &2844553882630571859
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,12 +253,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5145904801506808302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df4403126dd4f6248962cb6422d3b8bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 429ec142ab25e5b4ca15eeeb267e3ed5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CardSpawner
-  data: {fileID: 11400000, guid: 9c05fc5fd635b9c4a93b703300ed9407, type: 2}
-  cardPrefab: {fileID: 5145904801506808302}
-  cardParent: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::DraggableCard
 --- !u!1 &5623226377340345193
 GameObject:
   m_ObjectHideFlags: 0
