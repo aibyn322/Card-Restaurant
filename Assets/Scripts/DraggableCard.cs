@@ -1,16 +1,26 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(CanvasGroup))]
 public class DraggableCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     CanvasGroup group;
 
-    void Awake() { group = GetComponent<CanvasGroup>(); }
+    CanvasGroup Group
+    {
+        get
+        {
+            if (group == null)
+            {
+                group = GetComponent<CanvasGroup>();
+                if (group == null) group = gameObject.AddComponent<CanvasGroup>();
+            }
+            return group;
+        }
+    }
 
     public void OnBeginDrag(PointerEventData e)
     {
-        group.blocksRaycasts = false;     // lets the mouse "see through" the card to what's under it
+        Group.blocksRaycasts = false;     // lets the mouse "see through" the card to what's under it
         transform.SetAsLastSibling();     // draw on top of everything
     }
 
@@ -21,6 +31,6 @@ public class DraggableCard : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData e)
     {
-        group.blocksRaycasts = true;
+        Group.blocksRaycasts = true;
     }
 }

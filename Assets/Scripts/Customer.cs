@@ -22,9 +22,17 @@ public class Customer : MonoBehaviour, IDropHandler
 
     void Update()
     {
+        if (left) return;
+
         timeLeft -= Time.deltaTime;
-        patienceBar.fillAmount = timeLeft / patience;
-        if (timeLeft <= 0f) Leave();
+        if (patienceBar != null)
+            patienceBar.fillAmount = timeLeft / patience;
+
+        if (timeLeft <= 0f)
+        {
+            GameManager.Instance.ChangeReputation(-0.15f);   // customer gave up
+            Leave();
+        }
     }
 
     public void OnDrop(PointerEventData e)
@@ -33,17 +41,17 @@ public class Customer : MonoBehaviour, IDropHandler
         var view = e.pointerDrag.GetComponent<CardView>();
         if (view == null) return;
 
-        if (view.data == order)            // correct item delivered
+        if (view.data == order)
         {
             GameManager.Instance.AddMoney(order.sellPrice);
+            GameManager.Instance.ChangeReputation(+0.1f);
             Destroy(view.gameObject);
             Leave();
         }
-        // wrong item: nothing happens, the card just stays where it was dropped
     }
-
     void Leave()
     {
+        if (left) return;                        // never run twice
         left = true;
         Destroy(gameObject);
     }

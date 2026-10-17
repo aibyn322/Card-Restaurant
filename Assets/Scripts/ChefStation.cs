@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class ChefStation : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
-    public List<Recipe> recipes;
     public GameObject cardPrefab;
     public Transform cardParent;
     public Image progressBar;
@@ -40,11 +39,11 @@ public class ChefStation : MonoBehaviour, IDropHandler, IPointerClickHandler
 
     Recipe FindMatch()
     {
-        foreach (var r in recipes)
+        foreach (var r in GameManager.Instance.UnlockedRecipes)
         {
             if (r.ingredients.Count != stack.Count) continue;
             bool same = r.ingredients.OrderBy(x => x.name)
-                         .SequenceEqual(stack.OrderBy(x => x.name));
+                        .SequenceEqual(stack.OrderBy(x => x.name));
             if (same) return r;
         }
         return null;

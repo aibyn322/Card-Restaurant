@@ -6,7 +6,6 @@ public class CustomerSpawner : MonoBehaviour
 {
     public GameObject customerPrefab;
     public Transform[] seats;                 // empty objects marking where customers stand
-    public List<CardData> possibleOrders;     // e.g. Tea
     public float interval = 8f;
 
     Customer[] seated;
@@ -42,14 +41,11 @@ public class CustomerSpawner : MonoBehaviour
                     Destroy(go);
                     return;
                 }
-                if (possibleOrders.Count == 0 || possibleOrders[0] == null)
-                {
-                    Debug.LogError("Possible Orders is empty or has an empty slot!");
-                    Destroy(go);
-                    return;
-                }
 
-                c.Init(possibleOrders[Random.Range(0, possibleOrders.Count)]);
+                var orders = GameManager.Instance.UnlockedOrders;
+                if (orders.Count == 0) return;
+                c.Init(orders[Random.Range(0, orders.Count)]);
+
                 seated[i] = c;
                 return;
             }
